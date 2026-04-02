@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amos Portfolio</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* BODY */
+body {
+  background: #0b1c3d;
+  color: white;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 60px;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #6c63ff;
+}
+
+.nav-links a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #ddd;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #6c63ff;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 60px;
+  min-height: 90vh;
+}
+
+.hero-text {
+  max-width: 550px;
+}
+
+.hero-text small {
+  color: #7bd88f;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin: 20px 0;
+}
+
+.hero-text p {
+  color: #bbb;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.hero-text button {
+  background: #3b82f6;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.hero-img img {
+  width: 420px;
+  border-radius: 20px;
+}
+
+/* CHAT ICON */
+#chat-icon {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  background: #6c63ff;
+  color: white;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+/* CHATBOX */
+#chat-window {
+  width: 320px;
+  height: 450px;
+  background: white;
+  border-radius: 15px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  overflow: hidden;
+}
+
+/* HEADER */
+#header {
+  background: #6c63ff;
+  color: white;
+  padding: 12px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* HEADER RIGHT SIDE */
+.header-controls {
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+/* MESSAGES */
+#messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* BUBBLES */
+.bubble {
+  padding: 10px 14px;
+  border-radius: 15px;
+  max-width: 80%;
+  font-size: 0.9rem;
+}
+
+.user {
+  background: #6c63ff;
+  color: white;
+  align-self: flex-end;
+}
+
+.bot {
+  background: #f1f3f7;
+  color: #333;
+  align-self: flex-start;
+}
+
+/* INPUT */
+#input-area {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+button {
+  background: #6c63ff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 20px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #574fd6;
+}
+
+.typing-indicator {
+  font-size: 0.8rem;
+  color: #888;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">Amos</div>
+  <div class="nav-links">
+    <a href="{{url_for('home')}}">Home</a>
+    <a href="{{url_for('about')}}">About</a>
+    <a href="{{url_for('projects')}}">Projects</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <small>● Build Everything</small>
+    <h1>Unveiling My Professional Journey</h1>
+    <p>
+      I'm Amos — an AI & Robotics enthusiast passionate about building
+      intelligent systems, chatbots, and automation solutions.
+    </p>
+    <button>Get Started</button>
+  </div>
+
+  <div class="hero-img">
+    <img src="static/images/Amos passport .jpg" alt="Amos">
+  </div>
+</section>
+
+<!-- CHAT ICON -->
+<div id="chat-icon" onclick="toggleChat()">💬</div>
+
+<!-- CHATBOT -->
+<div id="chat-window">
+  <div id="header">
+    <span>Amos AI 🤖</span>
+
+    <!-- CONTROLS -->
+    <div class="header-controls">
+      <span id="voice-toggle" onclick="toggleVoice()">🔊</span>
+      <span onclick="toggleChat()">❌</span>
+    </div>
+  </div>
+
+  <div id="messages"></div>
+
+  <div id="input-area">
+    <input type="text" id="user-input" placeholder="Ask about Amos...">
+    <button onclick="send()">➤</button>
+  </div>
+</div>
+
+<script>
+const msgDiv = document.getElementById('messages');
+const input = document.getElementById('user-input');
+const voiceBtn = document.getElementById('voice-toggle');
+
+let isVoiceEnabled = true;
+
+/* TOGGLE CHAT */
+function toggleChat() {
+  const chat = document.getElementById('chat-window');
+  const icon = document.getElementById('chat-icon');
+
+  if (chat.style.display === "none" || chat.style.display === "") {
+    chat.style.display = "flex";
+    icon.style.display = "none";
+  } else {
+    chat.style.display = "none";
+    icon.style.display = "flex";
+  }
+}
+
+/* VOICE TOGGLE */
+function toggleVoice() {
+  isVoiceEnabled = !isVoiceEnabled;
+  voiceBtn.textContent = isVoiceEnabled ? "🔊" : "🔇";
+  if (!isVoiceEnabled) window.speechSynthesis.cancel();
+}
+
+/* BOT RESPONSE */
+async function processBotResponse(text) {
+  const botDiv = document.createElement('div');
+  botDiv.className = 'bubble bot';
+  msgDiv.appendChild(botDiv);
+
+  for (let char of text) {
+    botDiv.textContent += char;
+    msgDiv.scrollTop = msgDiv.scrollHeight;
+    await new Promise(r => setTimeout(r, 15));
+  }
+
+  if (isVoiceEnabled) {
+    const speech = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(speech);
+  }
+}
+
+/* SEND MESSAGE */
+async function send() {
+  const text = input.value.trim();
+  if (!text) return;
+
+  const userDiv = document.createElement('div');
+  userDiv.className = 'bubble user';
+  userDiv.textContent = text;
+  msgDiv.appendChild(userDiv);
+
+  input.value = "";
+
+  const loader = document.createElement('div');
+  loader.className = 'typing-indicator';
+  loader.textContent = "Thinking...";
+  msgDiv.appendChild(loader);
+
+  try {
+    const res = await fetch('/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text })
+    });
+
+    const data = await res.json();
+    loader.remove();
+    processBotResponse(data.response);
+
+  } catch {
+    loader.remove();
+    processBotResponse("Backend not connected ⚠️");
+  }
+}
+
+input.addEventListener('keypress', e => {
+  if (e.key === 'Enter') send();
+});
+
+window.onload = () => {
+  processBotResponse("Hi! I'm Amos AI 🤖 Ask me anything about Amos!");
+};
+</script>
+
+</body>
+</html>

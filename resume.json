@@ -1,0 +1,61 @@
+{
+  "name": "Amos Melvin",
+  "contact": {
+    "phone": "6379418738",
+    "email": "amosmelvin63@gmail.com",
+    "address": "11/145 Ghandhi Puram, Mathalamparai, Tenkasi, Tamil Nadu"
+  },
+  "profile": "Junior Robotic Engineer skilled in designing and developing mobile robotics. Built a robo race project and adaptable to new technologies. Eager to contribute to innovative projects and grow in a dynamic environment.",
+  "skills": [
+    "Automation Knowledge",
+    "UI & UX Design",
+    "Arduino (Basic)",
+    "AutoCAD",
+    "Mobile Robotics (Basic)"
+  ],
+  "education": [
+    {
+      "institution": "Loyola Institute of Technology and Science (Anna University)",
+      "course": "Robotics and Automation",
+      "duration": "2021-2025"
+    },
+    {
+      "institution": "Veeramamunivar RC Hr Sec School",
+      "course": "Higher Secondary",
+      "duration": "2020-2021",
+      "percentage": "69.57%"
+    },
+    {
+      "institution": "Veeramamunivar RC Hr Sec School",
+      "course": "SSLC",
+      "duration": "2018-2019",
+      "percentage": "60%"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Robo Race Car",
+      "description": [
+        "Designed and built a Bluetooth-controlled robot for racing competitions",
+        "Integrated ultrasonic sensors for real-time obstacle detection",
+        "Programmed Arduino microcontroller for motor control and sensor data",
+        "Optimized speed and maneuverability for race courses"
+      ]
+    }
+  ],
+  "certifications": [
+    "Sensors",
+    "Introduction to Artificial Intelligence"
+  ],
+  "languages": [
+    "English",
+    "Tamil"
+  ],
+  "soft_skills": [
+    "Communication",
+    "Teamwork",
+    "Adaptability",
+    "Problem Solving"
+  ],
+  "declaration": "I hereby declare that the above information is true to the best of my knowledge and belief. I will be sincere and honest in my work."
+}
