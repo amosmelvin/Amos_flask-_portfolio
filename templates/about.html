@@ -5,46 +5,148 @@
 <title>About Amos</title>
 
 <style>
-body { font-family: Arial; margin:0; background:#f4f6f9; }
-nav { background:#222; padding:15px; text-align:center; }
-nav a { color:white; margin:0 20px; text-decoration:none; }
-
-.container {
-  max-width:800px;
-  margin:50px auto;
-  text-align:center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-h1 { margin-bottom:20px; }
-p { color:#555; line-height:1.6; }
+/* BODY */
+body {
+  background: #0b1c3d;
+  color: white;
+}
 
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background: #0b1c3d;
+}
+
+nav a {
+  color: white;
+  margin: 0 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #9fb3ff;
+}
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 60px;
+  gap: 60px;
+  min-height: 90vh;
+}
+
+/* IMAGE SIDE */
+.hero-img {
+  position: relative;
+}
+
+.hero-img img {
+  width: 300px;
+  border-radius: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+/* GLOW EFFECT */
+.hero-img::before {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(155, 99, 255, 0.6), transparent);
+  top: -20px;
+  left: -20px;
+  z-index: 1;
+}
+
+/* TEXT SIDE */
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-text small {
+  color: #9fb3ff;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin: 20px 0;
+  line-height: 1.2;
+}
+
+.hero-text h1 span {
+  color: #9fb3ff;
+}
+
+.hero-text p {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+/* SKILLS */
 .skills {
-  margin-top:30px;
+  margin-top: 30px;
+}
+
+.skills h2 {
+  margin-bottom: 10px;
+}
+
+.skills p {
+  color: #9fb3ff;
+  font-weight: 500;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <nav>
   <a href="{{url_for('home')}}">Home</a>
   <a href="{{url_for('about')}}">About</a>
   <a href="{{url_for('projects')}}">Projects</a>
 </nav>
 
-<div class="container">
-  <h1>About Me</h1>
-  <p>
-    I'm Amos, an AI and Robotics enthusiast passionate about building intelligent
-    systems and automation solutions. I enjoy working with machine learning,
-    Python, and web technologies.
-  </p>
+<!-- HERO -->
+<section class="hero">
 
-  <div class="skills">
-    <h2>Skills</h2>
-    <p>Python | Machine Learning | AI | Web Development | Flask</p>
+  <!-- IMAGE -->
+  <div class="hero-img">
+    <img src="{{ url_for('static', filename='images/001.jpeg') }}" alt="Amos">
   </div>
-</div>
+
+  <!-- TEXT -->
+  <div class="hero-text">
+    <small>Hello! I am Amos</small>
+    <h1>I'm a <span>Software Engineer</span></h1>
+
+    <p>
+      I'm Amos, an AI and Robotics enthusiast passionate about building intelligent
+      systems and automation solutions. I enjoy working with machine learning,
+      Python, and web technologies.
+    </p>
+
+    <div class="skills">
+      <h2>Skills</h2>
+      <p>Python • Machine Learning • AI • Web Development • Flask</p>
+    </div>
+  </div>
+
+</section>
 
 </body>
 </html>
