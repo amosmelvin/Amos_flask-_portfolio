@@ -15,8 +15,8 @@
 
 /* BODY */
 body {
-  background: #0b1c3d;
-  color: white;
+  background: #ffffff;
+  color: #000;
 }
 
 /* NAVBAR */
@@ -25,23 +25,24 @@ nav {
   justify-content: space-between;
   padding: 20px 60px;
   align-items: center;
+  background: #007bff;
 }
 
 .logo {
   font-size: 1.4rem;
   font-weight: bold;
-  color: #6c63ff;
+  color: white;
 }
 
 .nav-links a {
   margin-left: 30px;
   text-decoration: none;
-  color: #ddd;
+  color: white;
   font-weight: 500;
 }
 
 .nav-links a:hover {
-  color: #6c63ff;
+  color: #cce5ff;
 }
 
 /* HERO */
@@ -58,7 +59,7 @@ nav {
 }
 
 .hero-text small {
-  color: #7bd88f;
+  color: #28a745;
 }
 
 .hero-text h1 {
@@ -67,13 +68,13 @@ nav {
 }
 
 .hero-text p {
-  color: #bbb;
+  color: #555;
   line-height: 1.6;
   margin-bottom: 25px;
 }
 
 .hero-text button {
-  background: #3b82f6;
+  background: #007bff;
   border: none;
   padding: 12px 25px;
   border-radius: 8px;
@@ -81,6 +82,7 @@ nav {
   cursor: pointer;
 }
 
+/* IMAGE */
 .hero-img img {
   width: 420px;
   border-radius: 20px;
@@ -93,7 +95,7 @@ nav {
   left: 20px;
   width: 60px;
   height: 60px;
-  background: #6c63ff;
+  background: #007bff;
   color: white;
   font-size: 28px;
   display: flex;
@@ -122,7 +124,7 @@ nav {
 
 /* HEADER */
 #header {
-  background: #6c63ff;
+  background: #007bff;
   color: white;
   padding: 12px;
   font-weight: 600;
@@ -131,7 +133,6 @@ nav {
   align-items: center;
 }
 
-/* HEADER RIGHT SIDE */
 .header-controls {
   display: flex;
   gap: 10px;
@@ -157,7 +158,7 @@ nav {
 }
 
 .user {
-  background: #6c63ff;
+  background: #007bff;
   color: white;
   align-self: flex-end;
 }
@@ -184,7 +185,7 @@ input {
 }
 
 button {
-  background: #6c63ff;
+  background: #007bff;
   color: white;
   border: none;
   padding: 10px 14px;
@@ -194,7 +195,7 @@ button {
 }
 
 button:hover {
-  background: #574fd6;
+  background: #0056b3;
 }
 
 .typing-indicator {
@@ -229,7 +230,7 @@ button:hover {
   </div>
 
   <div class="hero-img">
-    <img src="static/images/001.jpeg" alt="Amos">
+    <img src="{{ url_for('static', filename='images/001.jpeg') }}" alt="Amos">
   </div>
 </section>
 
@@ -241,7 +242,6 @@ button:hover {
   <div id="header">
     <span>Amos AI 🤖</span>
 
-    <!-- CONTROLS -->
     <div class="header-controls">
       <span id="voice-toggle" onclick="toggleVoice()">🔊</span>
       <span onclick="toggleChat()">❌</span>
