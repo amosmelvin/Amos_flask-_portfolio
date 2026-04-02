@@ -14,6 +14,12 @@
 
 /* BODY */
 body {
+  background: #ffffff;
+  color: black;
+}
+
+/* TOP SECTION (NAV + HERO) */
+.top-section {
   background: #0b1c3d;
   color: white;
 }
@@ -23,7 +29,6 @@ nav {
   display: flex;
   justify-content: center;
   padding: 20px;
-  background: #0b1c3d;
 }
 
 nav a {
@@ -37,41 +42,40 @@ nav a:hover {
   color: #9fb3ff;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 80px 60px;
   gap: 60px;
-  min-height: 90vh;
 }
 
-/* IMAGE SIDE */
+/* IMAGE */
 .hero-img {
   position: relative;
 }
 
 .hero-img img {
-  width: 300px;
+  width: 280px;
   border-radius: 20px;
   z-index: 2;
   position: relative;
 }
 
-/* GLOW EFFECT */
+/* GLOW */
 .hero-img::before {
   content: "";
   position: absolute;
-  width: 350px;
-  height: 350px;
+  width: 320px;
+  height: 320px;
   background: radial-gradient(circle, rgba(155, 99, 255, 0.6), transparent);
   top: -20px;
   left: -20px;
   z-index: 1;
 }
 
-/* TEXT SIDE */
+/* TEXT */
 .hero-text {
   max-width: 600px;
 }
@@ -83,7 +87,6 @@ nav a:hover {
 .hero-text h1 {
   font-size: 3rem;
   margin: 20px 0;
-  line-height: 1.2;
 }
 
 .hero-text h1 span {
@@ -93,7 +96,12 @@ nav a:hover {
 .hero-text p {
   color: #cbd5e1;
   line-height: 1.7;
-  margin-top: 20px;
+}
+
+/* WHITE SECTION */
+.content {
+  padding: 60px;
+  text-align: center;
 }
 
 /* SKILLS */
@@ -106,47 +114,58 @@ nav a:hover {
 }
 
 .skills p {
-  color: #9fb3ff;
-  font-weight: 500;
+  color: #555;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <a href="{{url_for('home')}}">Home</a>
-  <a href="{{url_for('about')}}">About</a>
-  <a href="{{url_for('projects')}}">Projects</a>
-</nav>
+<!-- TOP NAVY SECTION -->
+<div class="top-section">
 
-<!-- HERO -->
-<section class="hero">
+  <!-- NAVBAR -->
+  <nav>
+    <a href="{{url_for('home')}}">Home</a>
+    <a href="{{url_for('about')}}">About</a>
+    <a href="{{url_for('projects')}}">Projects</a>
+  </nav>
 
-  <!-- IMAGE -->
-  <div class="hero-img">
-    <img src="{{ url_for('static', filename='images/001.jpeg') }}" alt="Amos">
-  </div>
-
-  <!-- TEXT -->
-  <div class="hero-text">
-    <small>Hello! I am Amos</small>
-    <h1>I'm a <span>Software Engineer</span></h1>
-
-    <p>
-      I'm Amos, an AI and Robotics enthusiast passionate about building intelligent
-      systems and automation solutions. I enjoy working with machine learning,
-      Python, and web technologies.
-    </p>
-
-    <div class="skills">
-      <h2>Skills</h2>
-      <p>Python • Machine Learning • AI • Web Development • Flask</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-img">
+      <img src="{{ url_for('static', filename='images/001.jpeg') }}" alt="Amos">
     </div>
+
+    <div class="hero-text">
+      <small>Hello! I am Amos</small>
+      <h1>I'm a <span>Software Engineer</span></h1>
+
+      <p>
+        I'm Amos, an AI and Robotics enthusiast passionate about building intelligent
+        systems and automation solutions.
+      </p>
+    </div>
+  </section>
+
+</div>
+
+<!-- WHITE BODY SECTION -->
+<div class="content">
+
+  <h1>About Me</h1>
+
+  <p>
+    I enjoy working with machine learning, Python, and web technologies.
+    I focus on creating efficient and intelligent solutions that solve real-world problems.
+  </p>
+
+  <div class="skills">
+    <h2>Skills</h2>
+    <p>Python • Machine Learning • AI • Web Development • Flask</p>
   </div>
 
-</section>
+</div>
 
 </body>
 </html>

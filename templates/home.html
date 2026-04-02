@@ -201,6 +201,146 @@ button:hover {
   font-size: 0.8rem;
   color: #888;
 }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  /* NAVBAR */
+  nav {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  .nav-links a {
+    margin: 0 15px;
+    font-size: 0.9rem;
+  }
+  
+  /* HERO */
+  .hero {
+    flex-direction: column;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .hero-text {
+    max-width: 100%;
+    order: 2;
+  }
+  
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+  
+  .hero-img {
+    order: 1;
+    margin-bottom: 30px;
+  }
+  
+  .hero-img img {
+    width: 280px;
+    max-width: 100%;
+  }
+  
+  /* CHAT */
+  #chat-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    bottom: 15px;
+    left: 15px;
+  }
+  
+  #chat-window {
+    width: 90%;
+    max-width: 320px;
+    height: 70vh;
+    max-height: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  /* NAVBAR */
+  nav {
+    padding: 10px 15px;
+  }
+  
+  .logo {
+    font-size: 1.1rem;
+  }
+  
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .nav-links a {
+    margin: 5px 10px;
+    font-size: 0.85rem;
+  }
+  
+  /* HERO */
+  .hero {
+    padding: 30px 15px;
+  }
+  
+  .hero-text h1 {
+    font-size: 1.8rem;
+    margin: 15px 0;
+  }
+  
+  .hero-text p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-text button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .hero-img img {
+    width: 220px;
+  }
+  
+  /* CHAT */
+  #chat-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+  
+  #chat-window {
+    width: 95%;
+    height: 75vh;
+  }
+  
+  .bubble {
+    font-size: 0.85rem;
+    max-width: 85%;
+  }
+  
+  input {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+  
+  button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
 </style>
 </head>
 
